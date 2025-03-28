@@ -15,6 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         h2 {
@@ -23,7 +24,6 @@
             font-size: 96px;
             text-align: center;
             text-transform: uppercase;
-            padding: 10px 20px;
             position: absolute;
             top: 20px;
             background: none;
@@ -37,13 +37,14 @@
 </head>
 <body>
     <h2>ESCAPE ME</h2>
+    
     <model-viewer 
         id="modelViewer"
-        src="mein modell.glb" <!-- Stelle sicher, dass dein Modell korrekt im GitHub-Repo ist -->
-        ios-src="mein modell.usdz"
+        src="mein_modell.glb" <!-- Stelle sicher, dass dein Modellpfad korrekt ist -->
+        ios-src="mein_modell.usdz"
         alt="mein 3D-Modell"
         ar 
-        auto-rotate 
+        auto-rotate
         camera-controls 
         ar-modes="webxr scene-viewer quick-look"
         environment-image="neutral">
@@ -58,11 +59,6 @@
                 console.error("Fehler beim Laden des Modells:", event);
                 alert("Fehler: Das AR-Modell konnte nicht geladen werden. Überprüfe den Modellpfad!");
             });
-
-            // AR-Unterstützung überprüfen
-            if (!navigator.xr) {
-                console.warn("WebXR wird nicht unterstützt!");
-            }
         });
     </script>
 </body>
