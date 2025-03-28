@@ -7,7 +7,7 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         body {
-            background-color: #DD1C1A;
+            background-color: #DD1C1A; /* Rote Hintergrundfarbe */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,7 +34,7 @@
             position: relative;
             width: 50vw; /* Breite des Containers */
             height: 50vh; /* Höhe des Containers */
-            background-image: url('Без имени-1.png'); /* Beispiel für relativen Pfad */
+            background-image: url('Без имени-1.png'); /* Das Bild im gleichen Ordner wie die HTML-Datei */
             background-size: 120%; /* Bild wird 120% seiner ursprünglichen Größe dargestellt (ca. 30% größer) */
             background-position: center; /* Bild wird zentriert */
             background-repeat: no-repeat; /* Bild wird nicht wiederholt */
@@ -48,6 +48,15 @@
             width: 100%;
             height: 100%;
             border-radius: 10px; /* Abgerundete Ecken des Modells */
+        }
+
+        /* Media Query für kleinere Bildschirmgrößen (Handys) */
+        @media screen and (max-width: 768px) {
+            .model-container {
+                width: 90vw; /* Container auf 90% der Bildschirmbreite anpassen */
+                height: 60vh; /* Container auf 60% der Bildschirmhöhe anpassen */
+                background-size: cover; /* Bild wird auf die Containergröße skaliert */
+            }
         }
     </style>
 </head>
@@ -75,5 +84,6 @@
     </div>
 </body>
 </html>
+
 
 
