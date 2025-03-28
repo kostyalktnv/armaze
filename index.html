@@ -39,31 +39,30 @@
     <h2>ESCAPE ME</h2>
     <model-viewer 
         id="modelViewer"
-        src="mein_modell.glb" 
-        ios-src="mein_modell.usdz" 
+        src="mein modell.glb" <!-- Stelle sicher, dass dein Modell korrekt im GitHub-Repo ist -->
+        ios-src="mein modell.usdz"
         alt="mein 3D-Modell"
         ar 
         auto-rotate 
         camera-controls 
-        ar-modes="webxr scene-viewer quick-look" 
+        ar-modes="webxr scene-viewer quick-look"
         environment-image="neutral">
-        <!-- Alternativer Text, wenn AR nicht verfügbar ist -->
-        <p id="arErrorMessage">AR wird auf deinem Gerät nicht unterstützt oder es gibt ein Problem mit dem Modell.</p>
     </model-viewer>
 
     <script>
-        // Überprüfen, ob AR-Unterstützung vorhanden ist
-        function checkARSupport() {
+        document.addEventListener('DOMContentLoaded', function () {
             const modelViewer = document.getElementById('modelViewer');
-            if (!navigator.xr) {
-                modelViewer.setAttribute('ar', 'false');
-                document.getElementById('arErrorMessage').style.display = 'block';
-            }
-        }
+            
+            // Überprüfen, ob das Modell geladen wurde
+            modelViewer.addEventListener('error', (event) => {
+                console.error("Fehler beim Laden des Modells:", event);
+                alert("Fehler: Das AR-Modell konnte nicht geladen werden. Überprüfe den Modellpfad!");
+            });
 
-        // Warten, bis die DOM-Inhalte vollständig geladen sind
-        document.addEventListener('DOMContentLoaded', function() {
-            checkARSupport();
+            // AR-Unterstützung überprüfen
+            if (!navigator.xr) {
+                console.warn("WebXR wird nicht unterstützt!");
+            }
         });
     </script>
 </body>
